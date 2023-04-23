@@ -1,0 +1,453 @@
+﻿@page
+@model DAPM_Nhom16.Pages.Admin.WarehouseModel
+@{
+ViewData["Title"] = "Warehouse";
+	Layout = "~/Pages/Admin/_MainAdmin.cshtml";
+    
+}
+
+<style>
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+    .container__content {
+        width: 80%;
+        display:flex;
+        flex-direction:column;
+    }
+
+    .container__content--header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    .content__header--btn {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: 1px solid #7f7f7f;
+        padding: 10px;
+        border-radius: 5px;
+        margin-left: 20px;
+        box-shadow: rgba(0, 0, 0, 0.03) 0px 4px 8px;
+    }
+
+        .content__header--btn:hover {
+            background-color: #f2f2f2;
+        }
+
+        .content__header--btn p {
+            font-size: 14px;
+            font-weight: 500;
+            color: #000;
+        }
+
+        .content__header--btn i {
+            font-size: 20px;
+            color: #000;
+            padding: 0 0 0 10px;
+        }
+
+        .content__header--btn .content__header--filter {
+            padding: 0 10px 0 0px;
+        }
+
+        .content__header--btn .content__header--add {
+            padding: 0 10px 0 0px;
+        }
+
+    .content__header--search {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 220px;
+    }
+
+        .content__header--search input {
+            width: 400px;
+            height: 45px;
+            border: 1px solid #d1d1d1;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            padding: 0 10px;
+            box-shadow: rgba(0, 0, 0, 0.03) 0px 4px 8px;
+        }
+
+            .content__header--search input:hover {
+                background-color: #fff;
+            }
+
+            .content__header--search input:focus {
+                background-color: #fff;
+            }
+
+        .content__header--search i {
+            font-size: 20px;
+            position: absolute;
+            right: 10px;
+        }
+
+    .content__header--btnADD {
+        position: absolute;
+        right: 20px;
+        background-color: rgb(85, 26, 26);
+        padding: 13px;
+    }
+
+        .content__header--btnADD:hover {
+            background-color: rgb(172, 224, 122);
+        }
+
+            .content__header--btnADD:hover a {
+                color: #000;
+            }
+
+            .content__header--btnADD:hover i {
+                color: #000;
+            }
+
+        .content__header--btnADD a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .content__header--btnADD i {
+            font-size: 20px;
+            color: #fff;
+        }
+
+    /* CONTAINER CONTENT BODY header */
+    .content__body--header {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #d1d1d1;
+        margin: 24px 20px 4px;
+        padding-bottom: 8px;
+    }
+
+    .content__body--header--item {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+        .content__body--header--item p {
+            font-size: 17px;
+            font-weight: 600;
+            color: #000;
+        }
+
+    .header__item--iconCheck {
+        margin: 0 6px 0 3px;
+    }
+
+        .header__item--iconCheck input {
+            width: 20px;
+            height: 20px;
+            color: #000;
+            cursor: pointer;
+        }
+
+
+    /* CONTAINER CONTENT BODY */
+    .content__body--list {
+        max-height: 730px;
+        overflow: scroll;
+    }
+
+    .content__body--item {
+        display: flex;
+        padding: 20px;
+        align-items: center;
+        background-color: #f3cecead;
+        position: relative;
+        margin: 15px 0;
+        height: 140px;
+    }
+
+        .content__body--item:hover {
+            background-color: #f2f2f2;
+        }
+
+        .content__body--item p {
+            font-size: 17px;
+            font-weight: 500;
+            color: #000;
+        }
+
+    .header__item--name {
+        margin-left: 52px;
+    }
+
+    .header__item--price {
+        margin-left: 84px;
+    }
+
+    .header__item--quantity {
+        margin-left: 84px;
+    }
+
+    .header__item--decr {
+        margin-left: 65px;
+    }
+
+    .content__body--item .body__item--check {
+        width: 20px;
+        height: 20px;
+        margin: 0 20px 0 5px;
+    }
+
+    .content__body--item .body__item--stt {
+        margin-right: 50px;
+        margin-left: 14px;
+    }
+
+    .content__body--item .body__item--title {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+
+    .content__body--item .body__item--price {
+        margin-right: 50px;
+    }
+
+    .content__body--item .body__item--quantity {
+        margin-right: 20px;
+    }
+
+    .content__body--item .body__item--decr {
+        width: 250px;
+        font-size: 15px;
+        font-weight: 400;
+        position: absolute;
+        right: 20px;
+    }
+
+    .content__body--item .body__item--manu {
+        margin-right: 20px;
+        margin-left: 62px;
+    }
+
+</style>
+
+<div class="container__content">
+
+    <div class="container__content--header">
+
+        <div class="content__header--btn">
+            <i class="fa-solid fa-filter content__header--filter"></i>
+            <p class="">Bộ lọc</p>
+        </div>
+
+        <div class="content__header--btn">
+            <p>Loại thiết bị</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="content__header--btn">
+            <p>Giá</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="content__header--search">
+            <input type="text" placeholder="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="content__header--btn content__header--btnADD">
+            <i class="fa-solid fa-plus content__header--add"></i>
+            <p><a  class="nav-link text-dark" asp-area="" asp-page="/Privacy">Thêm thiết bị</a></p>
+        </div>
+
+
+    </div>
+
+    <div class="container__content--body">
+        <div class="content__body--header">
+            <div class="content__body--header--item header__item--iconCheck">
+                <input type="checkbox" name="" id="">
+            </div>
+            <div class="content__body--header--item">
+                <p>STT</p>
+            </div>
+            <div class="content__body--header--item">
+                <p>Hình Ảnh</p>
+            </div>
+            <div class="content__body--header--item header__item--name">
+                <p>Tên Thiết Bị</p>
+            </div>
+            <div class="content__body--header--item header__item--price">
+                <p>Giá Bán</p>
+            </div>
+            <div class="content__body--header--item header__item--quantity">
+                <p>Số Lượng</p>
+            </div>
+            <div class="content__body--header--item header__item--manu">
+                <p>Nhà Sản Xuất</p>
+            </div>
+            <div class="content__body--header--item header__item--decr">
+                <p>Mô Tả</p>
+            </div>
+        </div>
+
+        <div class="content__body--list">
+            <div class="content__body--item">
+                <input class="body__item--check" type="checkbox" name="" id="">
+                <p class="body__item--stt">1</p>
+                <img class="body__item--img" src="~/src_admin/img/dog.jpg" alt="">
+                <h3 class="body__item--title">Máy trộn bê tông</h3>
+                <p class="body__item--price">9.999.999VNĐ</p>
+                <p class="body__item--quantity">120</p>
+                <p class="body__item--manu">Tập đoàn Hòa Phát</p>
+                <p class="body__item--decr">
+                    Công suất động cơ:24HP<br />
+                    Đường kính lưỡi cắt: 800mm<br />
+                    Tổng trọng lượng (Kg): 250<br />
+                    Xuất xứ: lắp ráp tại Việt Nam<br />
+                    Bảo hành: 3 tháng
+                </p>
+            </div>
+
+            <div class="content__body--item">
+                <input class="body__item--check" type="checkbox" name="" id="">
+                <p class="body__item--stt">1</p>
+                <img class="body__item--img" src="~/src_admin/img/dog.jpg" alt="">
+                <h3 class="body__item--title">Máy trộn bê tông</h3>
+                <p class="body__item--price">9.999.999VNĐ</p>
+                <p class="body__item--quantity">120</p>
+                <p class="body__item--manu">Tập đoàn Hòa Phát</p>
+                <p class="body__item--decr">
+                    Công suất động cơ:24HP<br />
+                    Đường kính lưỡi cắt: 800mm<br />
+                    Tổng trọng lượng (Kg): 250<br />
+                    Xuất xứ: lắp ráp tại Việt Nam<br />
+                    Bảo hành: 3 tháng
+                </p>
+            </div>
+
+            <div class="content__body--item">
+                <input class="body__item--check" type="checkbox" name="" id="">
+                <p class="body__item--stt">1</p>
+				<img class="body__item--img" src="~/src_admin/img/dog.jpg" alt="">
+                <h3 class="body__item--title">Máy trộn bê tông</h3>
+                <p class="body__item--price">9.999.999VNĐ</p>
+                <p class="body__item--quantity">120</p>
+                <p class="body__item--manu">Tập đoàn Hòa Phát</p>
+                <p class="body__item--decr">
+                    Công suất động cơ:24HP<br />
+                    Đường kính lưỡi cắt: 800mm<br />
+                    Tổng trọng lượng (Kg): 250<br />
+                    Xuất xứ: lắp ráp tại Việt Nam<br />
+                    Bảo hành: 3 tháng
+                </p>
+            </div>
+
+            <div class="content__body--item">
+                <input class="body__item--check" type="checkbox" name="" id="">
+                <p class="body__item--stt">1</p>
+                <img class="body__item--img" src="~/src_admin/img/dog.jpg" alt="">
+                <h3 class="body__item--title">Máy trộn bê tông</h3>
+                <p class="body__item--price">9.999.999VNĐ</p>
+                <p class="body__item--quantity">120</p>
+                <p class="body__item--manu">Tập đoàn Hòa Phát</p>
+                <p class="body__item--decr">
+                    Công suất động cơ:24HP<br />
+                    Đường kính lưỡi cắt: 800mm<br />
+                    Tổng trọng lượng (Kg): 250<br />
+                    Xuất xứ: lắp ráp tại Việt Nam<br />
+                    Bảo hành: 3 tháng
+                </p>
+            </div>
+
+            <div class="content__body--item">
+                <input class="body__item--check" type="checkbox" name="" id="">
+                <p class="body__item--stt">1</p>
+                <img class="body__item--img" src="~/src_admin/img/dog.jpg" alt="">
+                <h3 class="body__item--title">Máy trộn bê tông</h3>
+                <p class="body__item--price">9.999.999VNĐ</p>
+                <p class="body__item--quantity">120</p>
+                <p class="body__item--manu">Tập đoàn Hòa Phát</p>
+                <p class="body__item--decr">
+                    Công suất động cơ:24HP<br />
+                    Đường kính lưỡi cắt: 800mm<br />
+                    Tổng trọng lượng (Kg): 250<br />
+                    Xuất xứ: lắp ráp tại Việt Nam<br />
+                    Bảo hành: 3 tháng
+                </p>
+            </div>
+
+            <div class="content__body--item">
+                <input class="body__item--check" type="checkbox" name="" id="">
+                <p class="body__item--stt">1</p>
+                <img class="body__item--img" src="~/src_admin/img/dog.jpg" alt="">
+                <h3 class="body__item--title">Máy trộn bê tông</h3>
+                <p class="body__item--price">9.999.999VNĐ</p>
+                <p class="body__item--quantity">120</p>
+                <p class="body__item--manu">Tập đoàn Hòa Phát</p>
+                <p class="body__item--decr">
+                    Công suất động cơ:24HP<br />
+                    Đường kính lưỡi cắt: 800mm<br />
+                    Tổng trọng lượng (Kg): 250<br />
+                    Xuất xứ: lắp ráp tại Việt Nam<br />
+                    Bảo hành: 3 tháng
+                </p>
+            </div>
+
+            <div class="content__body--item">
+                <input class="body__item--check" type="checkbox" name="" id="">
+                <p class="body__item--stt">1</p>
+                <img class="body__item--img" src="~/src_admin/img/dog.jpg" alt="">
+                <h3 class="body__item--title">Máy trộn bê tông</h3>
+                <p class="body__item--price">9.999.999VNĐ</p>
+                <p class="body__item--quantity">120</p>
+                <p class="body__item--manu">Tập đoàn Hòa Phát</p>
+                <p class="body__item--decr">
+                    Công suất động cơ:24HP<br />
+                    Đường kính lưỡi cắt: 800mm<br />
+                    Tổng trọng lượng (Kg): 250<br />
+                    Xuất xứ: lắp ráp tại Việt Nam<br />
+                    Bảo hành: 3 tháng
+                </p>
+            </div>
+
+            <div class="content__body--item">
+                <input class="body__item--check" type="checkbox" name="" id="">
+                <p class="body__item--stt">1</p>
+                <img class="body__item--img" src="~/src_admin/img/dog.jpg" alt="">
+                <h3 class="body__item--title">Máy trộn bê tông</h3>
+                <p class="body__item--price">9.999.999VNĐ</p>
+                <p class="body__item--quantity">120</p>
+                <p class="body__item--manu">Tập đoàn Hòa Phát</p>
+                <p class="body__item--decr">
+                    Công suất động cơ:24HP<br />
+                    Đường kính lưỡi cắt: 800mm<br />
+                    Tổng trọng lượng (Kg): 250<br />
+                    Xuất xứ: lắp ráp tại Việt Nam<br />
+                    Bảo hành: 3 tháng
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

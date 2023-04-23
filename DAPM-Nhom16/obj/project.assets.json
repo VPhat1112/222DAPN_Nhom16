@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\TH laptrinhC#\\DAPM-Nhom16\\DAPM-Nhom16\\DAPM-Nhom16.csproj",
+      "projectUniqueName": "D:\\CNTT_HK222\\DoAnPhanMem\\WebSiteChoThueThietBiXD\\222DATN-Nhom16\\DAPM-Nhom16\\DAPM-Nhom16.csproj",
       "projectName": "DAPM-Nhom16",
-      "projectPath": "E:\\TH laptrinhC#\\DAPM-Nhom16\\DAPM-Nhom16\\DAPM-Nhom16.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "E:\\TH laptrinhC#\\DAPM-Nhom16\\DAPM-Nhom16\\obj\\",
+      "projectPath": "D:\\CNTT_HK222\\DoAnPhanMem\\WebSiteChoThueThietBiXD\\222DATN-Nhom16\\DAPM-Nhom16\\DAPM-Nhom16.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "D:\\CNTT_HK222\\DoAnPhanMem\\WebSiteChoThueThietBiXD\\222DATN-Nhom16\\DAPM-Nhom16\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

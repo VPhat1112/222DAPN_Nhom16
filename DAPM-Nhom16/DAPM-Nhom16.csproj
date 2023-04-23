@@ -7,4 +7,8 @@
     <RootNamespace>DAPM_Nhom16</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\src_Admin\img\" />
+  </ItemGroup>
+
 </Project>

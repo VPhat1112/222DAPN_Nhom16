@@ -9,37 +9,49 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DAPM_Nhom16
 build_property.RootNamespace = DAPM_Nhom16
-build_property.ProjectDir = E:\TH laptrinhC#\DAPM-Nhom16\DAPM-Nhom16\
+build_property.ProjectDir = D:\CNTT_HK222\DoAnPhanMem\WebSiteChoThueThietBiXD\222DATN-Nhom16\DAPM-Nhom16\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\TH laptrinhC#\DAPM-Nhom16\DAPM-Nhom16
+build_property.MSBuildProjectDirectory = D:\CNTT_HK222\DoAnPhanMem\WebSiteChoThueThietBiXD\222DATN-Nhom16\DAPM-Nhom16
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/TH laptrinhC\#/DAPM-Nhom16/DAPM-Nhom16/Pages/Error.cshtml]
+[D:/CNTT_HK222/DoAnPhanMem/WebSiteChoThueThietBiXD/222DATN-Nhom16/DAPM-Nhom16/Pages/Admin/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT_HK222/DoAnPhanMem/WebSiteChoThueThietBiXD/222DATN-Nhom16/DAPM-Nhom16/Pages/Admin/Warehouse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cV2FyZWhvdXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CNTT_HK222/DoAnPhanMem/WebSiteChoThueThietBiXD/222DATN-Nhom16/DAPM-Nhom16/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TH laptrinhC\#/DAPM-Nhom16/DAPM-Nhom16/Pages/Index.cshtml]
+[D:/CNTT_HK222/DoAnPhanMem/WebSiteChoThueThietBiXD/222DATN-Nhom16/DAPM-Nhom16/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TH laptrinhC\#/DAPM-Nhom16/DAPM-Nhom16/Pages/Privacy.cshtml]
+[D:/CNTT_HK222/DoAnPhanMem/WebSiteChoThueThietBiXD/222DATN-Nhom16/DAPM-Nhom16/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TH laptrinhC\#/DAPM-Nhom16/DAPM-Nhom16/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/CNTT_HK222/DoAnPhanMem/WebSiteChoThueThietBiXD/222DATN-Nhom16/DAPM-Nhom16/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TH laptrinhC\#/DAPM-Nhom16/DAPM-Nhom16/Pages/_ViewImports.cshtml]
+[D:/CNTT_HK222/DoAnPhanMem/WebSiteChoThueThietBiXD/222DATN-Nhom16/DAPM-Nhom16/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TH laptrinhC\#/DAPM-Nhom16/DAPM-Nhom16/Pages/_ViewStart.cshtml]
+[D:/CNTT_HK222/DoAnPhanMem/WebSiteChoThueThietBiXD/222DATN-Nhom16/DAPM-Nhom16/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/TH laptrinhC\#/DAPM-Nhom16/DAPM-Nhom16/Pages/Shared/_Layout.cshtml]
+[D:/CNTT_HK222/DoAnPhanMem/WebSiteChoThueThietBiXD/222DATN-Nhom16/DAPM-Nhom16/Pages/Admin/_MainAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cX01haW5BZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-g6rsd0f2fp
+
+[D:/CNTT_HK222/DoAnPhanMem/WebSiteChoThueThietBiXD/222DATN-Nhom16/DAPM-Nhom16/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-jg6y7xfegk
