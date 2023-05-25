@@ -381,7 +381,7 @@ public String CALLTongTien(String maDonThue) {
     
     public List<LoaiThietBi> getAllCategory() {
         List<LoaiThietBi> list = new ArrayList<>();
-        String query = "select * from LoaiThietBi";
+        String query = "select * from DanhMucThietBi";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
@@ -553,30 +553,104 @@ public String CALLTongTien(String maDonThue) {
         return list;
     }
 
-    public List<Thietbi> searchByName(String txtSearch) {
+    public List<Thietbi> searchAll(String txtSearch) {
         List<Thietbi> list = new ArrayList<>();
-        String query = "select * from ThietBi\n"
-                + "where [tenThietBi] like ?";
+    String query = "SELECT * FROM ThietBi " +
+                   "WHERE maThietBi LIKE ? OR " +
+                   "tenThietBi LIKE ? OR " +
+                   "donGiaThue LIKE ? OR " +
+                   "soluongHienCon LIKE ? OR " +
+                   "dacDiem LIKE ? OR " +
+                   "hinhAnh LIKE ? OR " +
+                   "maDanhMuc LIKE ?";
+    try {
+        conn = new DBContext().getConnection();
+        ps = conn.prepareStatement(query);
+        String searchPattern = "%" + txtSearch + "%";
+        for (int i = 1; i <= 7; i++) {
+            ps.setString(i, searchPattern);
+        }
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            list.add(new Thietbi(rs.getString(1),
+                                 rs.getString(2),
+                                 rs.getDouble(3),
+                                 rs.getInt(4),
+                                 rs.getString(5),
+                                 rs.getString(6)));
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        // Đảm bảo đóng ResultSet, PreparedStatement và Connection
+        // trong phần finally để giải phóng tài nguyên
         try {
-            conn = new DBContext().getConnection();//mo ket noi voi sql
-            ps = conn.prepareStatement(query);
-            ps.setString(1, "%" + txtSearch + "%");
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new Thietbi(rs.getString(1),
-                        rs.getString(2),
-                        rs.getDouble(3),
-                        rs.getInt(4),
-                        rs.getString(5),
-                        rs.getString(6)
-//                        ,
-//                        rs.getString(7)
-                ));
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (conn != null) {
+                conn.close();
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
-        return list;
     }
+    return list;
+    }
+    
+    public List<Thietbi> searchAndFilter(String keyword, String minPrice, String maxPrice, String categoryCode) {
+    List<Thietbi> list = new ArrayList<>();
+    String query = "SELECT * FROM ThietBi " +
+                   "WHERE (maThietBi LIKE ? OR " +
+                   "tenThietBi LIKE ? OR " +
+                   "dacDiem LIKE ?) " +
+                   "AND donGiaThue >= ? AND donGiaThue <= ? " +
+                   "AND soluongHienCon >= ?";
+    try {
+        conn = new DBContext().getConnection();
+        ps = conn.prepareStatement(query);
+        String searchPattern = "%" + keyword + "%";
+        ps.setString(1, searchPattern);
+        ps.setString(2, searchPattern);
+        ps.setString(3, searchPattern);
+        ps.setString(4, minPrice);
+        ps.setString(5, maxPrice);
+        ps.setString(6, categoryCode);
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            list.add(new Thietbi(rs.getString(1),
+                                 rs.getString(2),
+                                 rs.getDouble(3),
+                                 rs.getInt(4),
+                                 rs.getString(5),
+                                 rs.getString(6)));
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        // Đảm bảo đóng ResultSet, PreparedStatement và Connection
+        // trong phần finally để giải phóng tài nguyên
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    return list;
+}
+
+    
 
     public Thietbi getProductByID(String id) {
         String query = "select * from ThietBi\n"

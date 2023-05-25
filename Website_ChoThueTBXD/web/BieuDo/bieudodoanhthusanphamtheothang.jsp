@@ -30,7 +30,7 @@
 		if(mapTS.size()!=0){
 			for(ThietBi_ThongKe ts:mapTS.values()){
 		%>	          
-          ['<%=ts.getTen()%>',     <%out.print(new ThietBiDAO().layTongDoanhThuTheoThang(thang));%>],
+          ['<%=ts.getTenThietBi()%>',     <%out.print(new ThietBiDAO().layTongDoanhThuTheoThang(thang));%>],
           <%}
 		}
 		}%>

@@ -40,13 +40,24 @@ public class SearchControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         String txtSearch = request.getParameter("txt");//giay chay bo
+        
+        String keyword = request.getParameter("txt");//giay chay bo
+        String minPrice = request.getParameter("giaTu");//giay chay bo
+        String maxPrice = request.getParameter("denGia");//giay chay bo
+        String categoryCode = request.getParameter("soLuong");//giay chay bo
+
+        
         DAO dao = new DAO();
-        List<Thietbi> list = dao.searchByName(txtSearch);
+        List<Thietbi> list = dao.searchAll(txtSearch);
+        List<Thietbi> listXX = dao.searchAndFilter(keyword, minPrice, maxPrice, categoryCode);
+        
         List<LoaiThietBi> listC = dao.getAllCategory();
         Thietbi last = dao.getLast();
         
         request.setAttribute("ListP", list);
         request.setAttribute("ListCC", listC);
+        request.setAttribute("ListXX", listXX);
+
         request.setAttribute("last", last);
         request.setAttribute("txtS", txtSearch);
         request.getRequestDispatcher("Home.jsp").forward(request, response);

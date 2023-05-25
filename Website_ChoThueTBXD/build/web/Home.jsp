@@ -11,6 +11,14 @@
         <!------ Include the above in your HEAD tag ---------->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="css/viewAdminProduct.css" rel="stylesheet" type="text/css"/>-->
+
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+          <link href="css/Home.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!--begin of menu-->
@@ -38,7 +46,7 @@
                         <c:forEach var="o" items="${ListP}" >
                             <div class="col-12 col-md-6 col-lg-4">
                                 <div class="card">
-                                    <img class="card-img-top" style="height: 200px" src="${o.hinhAnhString}" alt="Card image cap">
+                                    <img class="card-img-top" style="height: 185px;" src="${o.hinhAnhString}" alt="Card image cap">
                                     <div class="card-body">
                                         <h4 class="card-title show_txt"><a href="detail?pid=${o.maThietBi}" title="View Product">${o.tenThietBi}</a></h4>
                                         <p class="card-text show_txt">${o.dacDiem}</p>

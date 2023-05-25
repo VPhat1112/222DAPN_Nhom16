@@ -60,6 +60,7 @@ public class ThongKeDAO {
     }
 
     public Map<String, ThietBi_ThongKe> thongKeTheoKhoanNgay(String dateStart, String dateEnd) {
+        String a = "1";
         Map<String, ThietBi_ThongKe> map = new HashMap<>();
         try {
             ResultSet rs = new DBContext().chonDuLieu("select tb.maThietBi, tenThietBi, donGiaDat, soLuongDat, SUM(donGiaDat*soLuongDat) as tongTien, ngayThanhToan\n"
@@ -69,13 +70,16 @@ public class ThongKeDAO {
                     + "where ngayThanhToan>='" + dateStart + "' and ngayThanhToan<='" + dateEnd + "'\n"
                     + "group by tb.maThietBi, tenThietBi, donGiaDat, soLuongDat, ngayThanhToan");
             while (rs.next()) {
+                int so = Integer.parseInt(a);
+                so++;
+                a = Integer.toString(so);
                 String ma = rs.getString(1);
                 String ten = rs.getString(2);
                 Double gia = rs.getDouble(3);
                 int soLuong = rs.getInt(4);
                 Double doanhThu = rs.getDouble(5);
                 String ngay = rs.getString(6);
-                map.put(ma, new ThietBi_ThongKe(ma, ten, gia, soLuong, doanhThu, ngay));
+                map.put(a, new ThietBi_ThongKe(ma, ten, gia, soLuong, doanhThu, ngay));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -88,7 +92,7 @@ public class ThongKeDAO {
     public Map<String, ThietBi_ThongKe> thongKeTheoThang(String text) {
         String year = text.substring(0, text.indexOf("-"));
         String month = text.substring(text.indexOf("-") + 1, text.length());
-
+        String a = "1";
         Map<String, ThietBi_ThongKe> map = new HashMap<>();
         try {
             ResultSet rs = new DBContext().chonDuLieu("select tb.maThietBi, tenThietBi, donGiaDat, soLuongDat, SUM(donGiaDat*soLuongDat) as tongTien, ngayThanhToan\n"
@@ -98,13 +102,16 @@ public class ThongKeDAO {
                     + "where year(ngayThanhToan)='" + year + "' and month(ngayThanhToan)='" + month + "'\n"
                     + "group by tb.maThietBi, tenThietBi, donGiaDat, soLuongDat, ngayThanhToan");
             while (rs.next()) {
+                int so = Integer.parseInt(a);
+                so++;
+                a = Integer.toString(so);
                 String ma = rs.getString(1);
                 String ten = rs.getString(2);
                 Double gia = rs.getDouble(3);
                 int soLuong = rs.getInt(4);
                 Double doanhThu = rs.getDouble(5);
                 String ngay = rs.getString(6);
-                map.put(ma, new ThietBi_ThongKe(ma, ten, gia, soLuong, doanhThu, ngay));
+                map.put(a, new ThietBi_ThongKe(ma, ten, gia, soLuong, doanhThu, ngay));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,7 +124,7 @@ public class ThongKeDAO {
         Date toDate = new Date(System.currentTimeMillis());
         SimpleDateFormat fomatTime = new SimpleDateFormat("MM-dd-yyyy");
         String date = fomatTime.format(toDate.getTime());
-
+        String a = "1";
         String year = date.substring(0, date.indexOf("-"));
         String month = date.substring(date.indexOf("-") + 1, date.lastIndexOf("-"));
 
@@ -130,13 +137,16 @@ public class ThongKeDAO {
                     + "where year(ngayThanhToan)='" + year + "' and month(ngayThanhToan)='" + month + "'\n"
                     + "group by tb.maThietBi, tenThietBi, donGiaDat, soLuongDat, ngayThanhToan");
             while (rs.next()) {
+                int so = Integer.parseInt(a);
+                so++;
+                a = Integer.toString(so);
                 String ma = rs.getString(1);
                 String ten = rs.getString(2);
                 Double gia = rs.getDouble(3);
                 int soLuong = rs.getInt(4);
                 Double doanhThu = rs.getDouble(5);
                 String ngay = rs.getString(6);
-                map.put(ma, new ThietBi_ThongKe(ma, ten, gia, soLuong, doanhThu, ngay));
+                map.put(a, new ThietBi_ThongKe(ma, ten, gia, soLuong, doanhThu, ngay));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -146,8 +156,10 @@ public class ThongKeDAO {
     }
 
     public Map<String, ThietBi_ThongKe> thongKeTheoNgay(String date) {
+        String a = "1";
         Map<String, ThietBi_ThongKe> map = new HashMap<>();
         try {
+
             ResultSet rs = new DBContext().chonDuLieu("select tb.maThietBi, tenThietBi, donGiaDat, soLuongDat, SUM(donGiaDat*soLuongDat) as tongTien, ngayThanhToan\n"
                     + "from ChiTietDonThue as ctdt\n"
                     + "join DonThue_HopDongChoThue as dt on  dt.maDonThue = ctdt.maDonThue\n"
@@ -155,13 +167,16 @@ public class ThongKeDAO {
                     + "where ngayThanhToan='" + date + "'\n"
                     + "group by tb.maThietBi, tenThietBi, donGiaDat, soLuongDat, ngayThanhToan");
             while (rs.next()) {
+                int so = Integer.parseInt(a);
+                so++;
+                a = Integer.toString(so);
                 String ma = rs.getString(1);
                 String ten = rs.getString(2);
                 Double gia = rs.getDouble(3);
                 int soLuong = rs.getInt(4);
                 Double doanhThu = rs.getDouble(5);
                 String ngay = rs.getString(6);
-                map.put(ma, new ThietBi_ThongKe(ma, ten, gia, soLuong, doanhThu, ngay));
+                map.put(a, new ThietBi_ThongKe(ma, ten, gia, soLuong, doanhThu, ngay));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -174,7 +189,7 @@ public class ThongKeDAO {
         Date toDate = new Date(System.currentTimeMillis());
         SimpleDateFormat fomatTime = new SimpleDateFormat("MM-dd-yyyy");
         String date = fomatTime.format(toDate.getTime());
-
+        String a = "1";
         Map<String, ThietBi_ThongKe> map = new HashMap<>();
         try {
             ResultSet rs = new DBContext().chonDuLieu("select tb.maThietBi, tenThietBi, donGiaDat, soLuongDat, SUM(donGiaDat*soLuongDat) as tongTien, ngayThanhToan\n"
@@ -184,13 +199,16 @@ public class ThongKeDAO {
                     + "where ngayThanhToan='" + date + "'\n"
                     + "group by tb.maThietBi, tenThietBi, donGiaDat, soLuongDat, ngayThanhToan");
             while (rs.next()) {
+                int so = Integer.parseInt(a);
+                so++;
+                a = Integer.toString(so);
                 String ma = rs.getString(1);
                 String ten = rs.getString(2);
                 Double gia = rs.getDouble(3);
                 int soLuong = rs.getInt(4);
                 Double doanhThu = rs.getDouble(5);
                 String ngay = rs.getString(6);
-                map.put(ma, new ThietBi_ThongKe(ma, ten, gia, soLuong, doanhThu, ngay));
+                map.put(a, new ThietBi_ThongKe(ma, ten, gia, soLuong, doanhThu, ngay));
             }
         } catch (Exception e) {
             e.printStackTrace();

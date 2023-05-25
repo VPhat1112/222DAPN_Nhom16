@@ -11,69 +11,70 @@ import java.util.Date;
  * @author dell
  */
 public class ThietBi_ThongKe {
-    String ma;
-    String ten;
-    double gia;
-    int soLuong;
-    double doanhThu;
-    String ngay;
-    
-    public ThietBi_ThongKe(String ma, String ten, double gia, int soLuong, double doanhThu, String ngay) {
-        super();
-        this.ma = ma;
-        this.ten = ten;
-        this.gia = gia;
-        this.soLuong = soLuong;
-        this.doanhThu = doanhThu;
-        this.ngay = ngay;
-}
+    private String maThietBi;
+    private String tenThietBi;
+    private double donGiaDat;
+    private int soLuongDat;
+    private double tongTien;
+    private String ngayThanhToan;
 
-    public String getMa() {
-        return ma;
+    public ThietBi_ThongKe(String maThietBi, String tenThietBi, double donGiaDat, int soLuongDat, double tongTien, String ngayThanhToan) {
+        this.maThietBi = maThietBi;
+        this.tenThietBi = tenThietBi;
+        this.donGiaDat = donGiaDat;
+        this.soLuongDat = soLuongDat;
+        this.tongTien = tongTien;
+        this.ngayThanhToan = ngayThanhToan;
     }
 
-    public void setMa(String ma) {
-        this.ma = ma;
+    public ThietBi_ThongKe() {
     }
 
-    public String getTen() {
-        return ten;
+    public String getMaThietBi() {
+        return maThietBi;
     }
 
-    public void setTen(String ten) {
-        this.ten = ten;
+    public void setMaThietBi(String maThietBi) {
+        this.maThietBi = maThietBi;
     }
 
-    public double getGia() {
-        return gia;
+    public String getTenThietBi() {
+        return tenThietBi;
     }
 
-    public void setGia(double gia) {
-        this.gia = gia;
+    public void setTenThietBi(String tenThietBi) {
+        this.tenThietBi = tenThietBi;
     }
 
-    public int getSoLuong() {
-        return soLuong;
+    public double getDonGiaDat() {
+        return donGiaDat;
     }
 
-    public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+    public void setDonGiaDat(double donGiaDat) {
+        this.donGiaDat = donGiaDat;
     }
 
-    public double getDoanhThu() {
-        return getSoLuong()*getGia();
+    public int getSoLuongDat() {
+        return soLuongDat;
     }
 
-    public void setDoanhThu(double doanhThu) {
-        this.doanhThu = doanhThu;
+    public void setSoLuongDat(int soLuongDat) {
+        this.soLuongDat = soLuongDat;
     }
 
-    public String getNgay() {
-        return ngay;
+    public double getTongTien() {
+        return getSoLuongDat()*getDonGiaDat();
     }
 
-    public void setNgay(String ngay) {
-        this.ngay = ngay;
+    public void setTongTien(double tongTien) {
+        this.tongTien = tongTien;
     }
-    
+
+    public String getNgayThanhToan() {
+        return ngayThanhToan;
+    }
+
+    public void setNgayThanhToan(String ngayThanhToan) {
+        this.ngayThanhToan = ngayThanhToan;
+    }
 }

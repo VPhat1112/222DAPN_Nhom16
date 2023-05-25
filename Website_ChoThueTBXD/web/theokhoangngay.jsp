@@ -87,11 +87,11 @@
                       <%int count=0;for(ThietBi_ThongKe ts : mapTS.values()){ count++;%>
            				 <TR>
                				 <TD> <%= count%></td>
-               				 <TD> <%= ts.getTen()%></TD>
-              				  <TD> <%= ts.getGia() %></TD>
-              				  <TD> <%= ts.getSoLuong()%></TD>
-              				  <TD> <%=ts.getDoanhThu()%></TD>
-              				  <TD> <%=ts.getNgay()%></TD>
+               				 <TD> <%= ts.getTenThietBi()%></TD>
+              				  <TD> <%= ts.getDonGiaDat()%></TD>
+              				  <TD> <%= ts.getSoLuongDat()%></TD>
+              				  <TD> <%=ts.getTongTien()%></TD>
+              				  <TD> <%=ts.getNgayThanhToan()%></TD>
            				 </TR>
            				 <%} %>
                       </tbody>
